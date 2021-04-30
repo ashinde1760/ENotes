@@ -12,6 +12,7 @@ import { AddNotesComponent } from './add-notes/add-notes.component';
 import { ShowNotesComponent } from './show-notes/show-notes.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

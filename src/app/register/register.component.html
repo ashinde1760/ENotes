@@ -1,9 +1,9 @@
 <div class="container-fluid back-img mt-5">
   <div class="row">
-    <div class="col-md-4 offset-md-4 mt-5">
+    <div class="col-md-4 offset-md-4 ">
       <div class="card mt-4">
         <div class="card-header text-center text-white bg-primary">
-          <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+          <mat-icon class="fa" aria-hidden="true">person_add</mat-icon>
           <h3>Registration</h3>
         </div>
 
@@ -12,22 +12,42 @@
           <form #registrationForm="ngForm" (ngSubmit)="userRegister(registrationForm.value)">
             <div class="form-group">
               <label> Enter Full Name</label>
-              <input type="text" class="form-control" ngModel name="fname" required="required">
+              <input type="text" required #name="ngModel"
+                     pattern="[a-zA-Z ]{3,30}"
+                     [class.is-invalid]="name.invalid && name.touched"
+                     class="form-control is-invalid" [(ngModel)]="regModel.name" name="fname">
+
+              <small class="text-danger" [class.d-none]="name.valid || name.untouched ">Name is Required</small>
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Enter Email</label>
-              <input type="email" class="form-control" ngModel id="exampleInputEmail1" aria-describedby="emailHelp" name="uemail" required="required">
+              <input type="email" required #email="ngModel"
+                     pattern="^[A-Za-z_0-9]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$"
+                     [class.is-invalid]="email.invalid && email.touched"
+                     class="form-control is-invalid" [(ngModel)]="regModel.email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+              <small class="text-danger" [class.d-none]="email.valid || email.untouched ">Enter correct Email-ID </small>
             </div>
 
             <div class="form-group">
               <label for="exampleInputPassword1">Enter Password</label>
-              <input type="password" class="form-control" ngModel id="exampleInputPassword1" name="upassword" required="required">
+              <input type="password" required #password="ngModel"
+                     pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$"
+                     [class.is-invalid]="password.invalid && password.touched"
+                     class="form-control is-invalid"
+                     [(ngModel)]="regModel.password" id="exampleInputPassword1" name="password">
+
+              <div *ngIf="password.errors && (password.invalid || password.touched)" >
+               <small class="text-danger" [class.d-none]="password.valid || password.untouched " *ngIf="password.errors.required">Password is Required</small>
+                <small class="text-danger" *ngIf="password.errors.pattern">Password must contain minimum 8 characters including (1 lowercase,1 special character,1 numeric)</small>
+
+              </div>
+
             </div>
 
             <h6 class="text-center mt-2 mb-2">Already Registered <a routerLink="/login">Login here</a></h6>
 
-            <button type="submit" class="btn btn-primary badge-pill btn-block" >
+            <button [disabled]="registrationForm.form.invalid" type="submit" class="btn btn-primary badge-pill btn-block">
               Register
             </button>
           </form>

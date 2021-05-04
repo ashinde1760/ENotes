@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { from } from 'rxjs';
 import { Register } from './register';
+import { Reg } from './reg';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,6 +10,8 @@ import { Register } from './register';
 export class RegisterComponent implements OnInit {
 
   constructor() { }
+
+  regModel = new Reg('', '', '');
 
   
   ngOnInit(): void

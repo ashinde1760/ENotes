@@ -7,7 +7,7 @@
               <mat-icon class="fa" aria-hidden="true">person</mat-icon><h2>Login</h2>
             </div>
               <div class="card-body" >
-
+                <h5 class="error_msg mb-3">{{error}}</h5>
                 <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm.value)">
 
                   <div class="form-group">

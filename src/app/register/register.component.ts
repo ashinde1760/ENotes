@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import { Register } from './register';
 import { Reg } from './reg';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
-
   constructor() { }
-
-  regModel = new Reg('', '', '');
-
-  
-  ngOnInit(): void
-  {
-    
+  ngOnInit(): void{
   }
 
+  regFormModule: any;
+  reg = new Reg();
+
+
+  //taking data from html to here and send to reg.ts file
   userRegister(value: any)
   {
-    console.log("hello");
-
+    this.regFormModule = value;
+    this.reg.regForm(this.regFormModule);
 
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Login } from './login';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,31 +8,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-
-  
-
-  ngOnInit(): void {
+ngOnInit(): void {
   }
-
-
-  loginObj: any;
 
   constructor(public router: Router) {
     this.loginObj = {};
   }
-  email = "ashinde1760@gmail.com";
-  password = "Akki@123";
 
+  error: any;
+  loginObj: any;
+  loginUser = new Login(this.router);
 
-  userLogin(value: any) {
-
-    if ((this.email === value.email) && (this.password === value.password)) {
-      this.router.navigate(['/homepage']);
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
-    
+    userLogin(value: any) {
+    this.loginObj = value;
+    this.error=this.loginUser.getData(this.loginObj);
 
   }
 

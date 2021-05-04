@@ -2,11 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\header",
-    "\\src\\app\\login",
-    "\\src\\app\\register"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\src\\app\\register\\register.component.css",
+  "SelectedNode": "\\src\\app",
   "PreviewInSolutionExplorer": false
 }

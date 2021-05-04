@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { addNote } from './addNote';
 
 @Component({
   selector: 'app-add-notes',
@@ -11,5 +12,11 @@ export class AddNotesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  addNotes: any;
+  addNoteObj=new addNote();
 
+  addNewNote(value: any) {
+    this.addNotes = value;
+    this.addNoteObj.addNote(this.addNotes);
+  }
 }

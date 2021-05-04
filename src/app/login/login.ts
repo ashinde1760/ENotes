@@ -8,6 +8,7 @@ export class Login {
   email = "ashinde1760@gmail.com";
   password = "Akki@123";
   msg = "Incorrect username or password";
+
   getData(loginObj: any): any{
     if ((this.email === loginObj.email) && (this.password === loginObj.password)) {
       this.router.navigate(['/homepage']);

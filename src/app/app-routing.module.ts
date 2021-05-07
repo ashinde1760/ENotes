@@ -1,45 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { AddNotesComponent } from './add-notes/add-notes.component';
-import { RegisterComponent } from './register/register.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { ShowNotesComponent } from './show-notes/show-notes.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { LoginComponent } from './user-login/login/login.component';
+import { UserLoginModule } from './user-login/user-login.module';
+import { UserRegisterModule } from './user-register/user-register.module';
+import { NotesModule } from './notes/notes.module';
+
 const routes: Routes = [
   {
-    path: 'login',
-    component:LoginComponent
+    path: "", pathMatch: "full", component: LoginComponent
   },
   {
-    path: 'register',
-    component:RegisterComponent
+    path: 'user-login',
+    loadChildren: () => UserLoginModule
   },
   {
-    path: 'addNotes',
-    component: AddNotesComponent
+    path: 'user-register',
+    loadChildren: () => UserRegisterModule
   },
   {
-    path: 'homepage',
-    component: HomepageComponent
-  },
-  {
-    path: 'showNotes',
-    component: ShowNotesComponent
-  },
-  {
-    path: 'forgetPassword',
-    component: ForgetPasswordComponent
-  },
-
-  {
-    path: "", pathMatch: "full", redirectTo:"login"
+    path: 'notes',
+    loadChildren: () => NotesModule
   }
-
+  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

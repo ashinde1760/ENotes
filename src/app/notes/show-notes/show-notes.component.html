@@ -1,0 +1,35 @@
+<app-header></app-header>
+  <div class="container">
+    <h2 class="text-center mt-3">All Notes</h2>
+    <div class="row">
+      <div class="col-md-12">
+
+          <div class="card ml-5 mr-5 mt-3">
+            <img alt="" src="image/paper.png" class="card-img-top mt-2 mx-auto"
+                 style="max-width: 100px;">
+            <div class="card-body p-4">
+
+              <h5 class="card-title">{{title}}</h5>
+              <p>{{content}}</p>
+        
+              <p>
+                <b class="text-success">Published By: </b><b class="text-primary">{{published_by}}</b>
+              </p>
+
+              <p>
+                <b class="text-success">Published Date: </b> <b class="text-primary">{{published_on}}</b>
+              </p>
+
+              <div class="container text-center mt-2">
+                <a routerLink="#" class="btn btn-danger mr-2">delete</a>
+                <a routerLink="#" class="btn btn-primary">Edit</a>
+              </div>
+
+            </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

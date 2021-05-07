@@ -1,40 +1,24 @@
 import { NgModule } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { AddNotesComponent } from './add-notes/add-notes.component';
-import { ShowNotesComponent } from './show-notes/show-notes.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent,
-    AddNotesComponent,
-    ShowNotesComponent,
-    HomepageComponent,
-    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
-    MatIconModule,
-    FontAwesomeModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
     BrowserAnimationsModule
   ],
   providers: [],

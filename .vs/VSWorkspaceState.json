@@ -3,9 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\notes",
-    "\\src\\app\\user-login"
+    "\\src\\app\\notes\\show-notes"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\app\\header-footer",
   "PreviewInSolutionExplorer": false
 }

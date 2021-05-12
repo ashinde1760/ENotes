@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { addNote } from './addNote';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserdataService } from 'src/app/userdata.service';
 
 @Component({
   selector: 'app-add-notes',
@@ -8,16 +9,22 @@ import { addNote } from './addNote';
 })
 export class AddNotesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService:UserdataService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
-  addNotes: any;
-  addNoteObj=new addNote();
+  public newNote:any={
+      title:'',
+      content:'',
+  }
 
-  addNewNote(value: any) {
-    this.addNotes = value;
-    this.addNoteObj.addNote(this.addNotes);
+  addNewNote() {
+    let msg=this.userService.addNewNote(this.newNote);
+    this.snack.open(msg,'OK',{
+      duration:3000,
+      verticalPosition:'top',
+      horizontalPosition:'center',
+    })
   }
 }

@@ -1,4 +1,4 @@
-
+/* 
 .bg-custom {
   background: #ab47bc;
 }
@@ -12,4 +12,18 @@
   background: white;
   color: black;
   border-radius: 10px;
+} */
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+a {
+color: white;
+text-decoration: none;
+}
+
+span {
+  border-radius:10px ;
 }

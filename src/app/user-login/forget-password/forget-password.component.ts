@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserdataService } from '../../userdata.service';
 
@@ -9,12 +10,25 @@ import { UserdataService } from '../../userdata.service';
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,public userService:UserdataService,private snack:MatSnackBar) { }
   error: string="";
   ngOnInit(): void { }
 
-  forgetPassData = new UserdataService(this.router)
-  forgetPassword(value: any) {
-    this.error = this.forgetPassData.getForgetPassData(value);
+  public forgetPass:any={
+    email:'',
+    lpass:'',
+    npass:'',
+    cpass:'',
+  }
+
+
+  forgetPassword() {
+    
+    this.error = this.userService.getForgetPassData(this.forgetPass);
+    this.snack.open(this.error,'OK',{
+      duration:3000,
+      verticalPosition:'top',
+      horizontalPosition:'center',
+    })
   }
 }

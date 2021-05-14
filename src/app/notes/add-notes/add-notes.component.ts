@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserdataService } from 'src/app/userdata.service';
+import { UserdataService } from '../../userdata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-notes',
@@ -9,7 +10,7 @@ import { UserdataService } from 'src/app/userdata.service';
 })
 export class AddNotesComponent implements OnInit {
 
-  constructor(public userService:UserdataService,private snack:MatSnackBar) { }
+  constructor(public router:Router ,public userService:UserdataService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -19,12 +20,22 @@ export class AddNotesComponent implements OnInit {
       content:'',
   }
 
-  addNewNote() {
-    let msg=this.userService.addNewNote(this.newNote);
-    this.snack.open(msg,'OK',{
-      duration:3000,
-      verticalPosition:'top',
-      horizontalPosition:'center',
-    })
+  addNewNote() 
+  {
+
+    this.userService.addNewNote(this.newNote).subscribe(
+
+      (done)=>{
+                 this.snack.open("Note Created Successfully",'OK',{
+                 duration:3000,
+                 verticalPosition:'top',
+                 horizontalPosition:'center',
+              })
+            },
+      (error)=>{
+                alert("Something Went wrong");
+                this.router.navigate(['/notes/addNotes']);
+              }
+        );
   }
 }

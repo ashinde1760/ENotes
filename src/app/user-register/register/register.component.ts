@@ -13,9 +13,6 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  //https://github.com/shivrajgodle/cowinClone.git
-
-  
   public userReg:any={
     name: '',
     email:'',

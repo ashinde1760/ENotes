@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import baseUrl from './helper'
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +25,7 @@ export class UserdataService {
     //Function for Registration  
     getUserRegData(regFormUser: any) 
     {
-
-        return this.http.post('http://localhost:8080/user/',regFormUser);
+        return this.http.post(`${baseUrl}/user/`,regFormUser);
     }
 
 
@@ -75,10 +75,11 @@ export class UserdataService {
 
 
   // function to Add a Note 
-  addNewNote(newNote:any):any
+  addNewNote(newNote:any)
   {
     console.log(newNote);
-    return this.msg4;
+    return this.http.post(`${baseUrl}/user/addNote`,newNote);
+    
   }
 
 }

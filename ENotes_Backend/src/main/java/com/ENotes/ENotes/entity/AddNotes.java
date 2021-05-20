@@ -15,16 +15,24 @@ import org.hibernate.annotations.CreationTimestamp;
 public class AddNotes {
 	@Id
 	@GeneratedValue
-	@Column(name = "noteId")
-	private int id;
+	private int noteId;
 	private String title;
 	private String content;
+	private int uid;
 	
 	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -37,20 +45,23 @@ public class AddNotes {
 		super();
 	}
 
-	public AddNotes(int id, String title, String content) {
+	public AddNotes(int noteId, String title, String content,int uid) {
 		super();
-		this.id = id;
+		this.noteId = noteId;
 		this.title = title;
 		this.content = content;
+		this.uid=uid;
 	}
 
 
-	public int getId() {
-		return id;
+	public int getNoteId() {
+		return noteId;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setNoteId(int noteId) {
+		this.noteId = noteId;
 	}
+
 	public String getTitle() {
 		return title;
 	}

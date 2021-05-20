@@ -18,21 +18,26 @@ export class AddNotesComponent implements OnInit {
   public newNote:any={
       title:'',
       content:'',
+      uid:localStorage.getItem('userId')
   }
 
   addNewNote() 
   {
 
     this.userService.addNewNote(this.newNote).subscribe(
+      
 
-      (done)=>{
+      (res:any)=>{
+                 
                  this.snack.open("Note Created Successfully",'OK',{
                  duration:3000,
                  verticalPosition:'top',
                  horizontalPosition:'center',
               })
+              this.router.navigate(['/notes/showNotes'])
             },
       (error)=>{
+                console.log(this.newNote);
                 alert("Something Went wrong");
                 this.router.navigate(['/notes/addNotes']);
               }

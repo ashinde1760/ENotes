@@ -15,7 +15,8 @@
                        class="form-control is-invalid" 
                        [(ngModel)]="newNote.title" 
                        name="title" 
-                       id="title">
+                       id="title"
+                       >
 
                 <div *ngIf="title.errors && (title.invalid || title.touched)" >
                       <small class="text-danger" 

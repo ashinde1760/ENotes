@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   
-  <a mat-icon-button  
+  <a mat-icon-bprimary
       class="example-icon" 
       aria-label="Example icon-button with menu icon">
       <mat-icon>menu_book</mat-icon>
@@ -8,22 +8,22 @@
   </a>
 
   <a  routerLink="/notes/homepage" 
-  mat-icon-button 
-  class="example-icon favorite-icon mr-2 ml-2" >
-  <mat-icon>home</mat-icon>
-  <span>Home</span>
+      mat-icon-button 
+      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary" >
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
   </a>
 
   <a  routerLink="/notes/addNotes" 
       mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2">
+      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary">
       <mat-icon>library_add</mat-icon>
       <span>Add Notes</span>
   </a>
 
   <a  routerLink="/notes/showNotes" 
       mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2 " >
+      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary " >
       <mat-icon>article</mat-icon>
       <span>Show Notes</span>
   </a>
@@ -33,48 +33,22 @@
 
   <span class="example-spacer"></span>
 
-  <a  routerLink="#" 
+  <a  
       mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2" >
+      class="example-icon favorite-icon mr-2 ml-2 btn  btn-success" 
+      type="submit"
+      (click)="profile()"
+      >
       <mat-icon>person</mat-icon>
-      Profile
+      {{profile}}
   </a>
 
   <a routerLink="/user-login/login"
      mat-icon-button 
-     class="example-icon mr-2 ml-2 " >
+     class="example-icon mr-2 ml-2 btn  btn-warning" >
     <mat-icon>logout</mat-icon>
     <span>Logout</span>
   </a>
 </mat-toolbar>
 
 
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-custom navbar-custom">
-  <button class="navbar-toggler" 
-          type="button" 
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" 
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse container" id="navbarSupportedContent">
-
-
-
-    <ul class="navbar-nav mr-auto ">
-      <li class="nav-item"><a class="nav-link"><mat-icon>school</mat-icon>ENotes</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/notes/homepage"><mat-icon>home</mat-icon>Home</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/notes/addNotes"><mat-icon>library_add</mat-icon>Add Notes</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/notes/showNotes"><mat-icon>article</mat-icon> Show Notes</a></li>
-    </ul>
-    <a class="btn btn-light my-2 my-sm-0 mr-2 loginButton" routerLink="#"><mat-icon>person</mat-icon>Profile</a>
-
-    <a class="btn btn-light my-2 my-sm-0 " routerLink="/user-login/login"><mat-icon>logout</mat-icon>Logout</a>
-
-
-  </div>
-</nav> -->

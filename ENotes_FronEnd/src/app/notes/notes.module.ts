@@ -6,12 +6,14 @@ import { HomepageComponent} from './homepage/homepage.component';
 import { NotesRoutingModule } from './notes-routing.module';
 import { HeaderFooterModule } from '../header-footer/header-footer.module';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     ShowNotesComponent,
-    AddNotesComponent
+    AddNotesComponent,
+    EditNotesComponent
   ],
   imports: [
     CommonModule,

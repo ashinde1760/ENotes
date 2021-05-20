@@ -3,30 +3,33 @@
     <h2 class="text-center mt-3">All Notes</h2>
     <div class="row">
       <div class="col-md-12">
-
+        <div *ngIf="notes">
+          <div *ngFor="let note of notes.slice().reverse()"> 
           <div class="card ml-5 mr-5 mt-3">
-            <img alt="" src="image/paper.png" class="card-img-top mt-2 mx-auto"
-                 style="max-width: 100px;">
-            <div class="card-body p-4">
+            
+                    <div class="card-body p-4">
+                      
+                           <input type="hidden" name="noteId"  value="{{note.noteId}}"> 
 
-              <h5 class="card-title">{{title}}</h5>
-              <p>{{content}}</p>
+                          <h5 class="card-title">{{note.title}}</h5>
+                          
+                          <p>{{note.content}}</p>
         
-              <p>
-                <b class="text-success">Published By: </b><b class="text-primary">{{published_by}}</b>
-              </p>
+                          <p>
+                              <b class="text-success">Published By: </b><b class="text-primary">{{published_by}}</b>
+                          </p>
 
-              <p>
-                <b class="text-success">Published Date: </b> <b class="text-primary">{{published_on}}</b>
-              </p>
+                          <p>
+                              <b class="text-success">Published Date: </b> <b class="text-primary">{{note.date}}</b>
+                          </p>
 
               <div class="container text-center mt-2">
-                <a routerLink="#" class="btn btn-danger mr-2">delete</a>
-                <a routerLink="#" class="btn btn-primary">Edit</a>
+                <button  class="btn btn-danger mr-2" (click)="deleteNote(note.noteId)">delete</button>
+                <button  class="btn btn-primary" (click)="editNote(note)">Edit</button>
               </div>
-
             </div>
-
+          </div>
+          </div>
           </div>
 
       </div>

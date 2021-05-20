@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Pipe, PipeTransform } from '@angular/core';
+import { UserdataService } from 'src/app/userdata.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-show-notes',
@@ -7,12 +12,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowNotesComponent implements OnInit {
 
-  constructor() { }
+  
 
-  ngOnInit(): void {
+  notes:any=[];
+  published_by:any;
+  constructor(private userService:UserdataService,private snack:MatSnackBar,public router:Router) {
+    this.published_by=localStorage.getItem('userName');
+
+   }
+
+
+   ngOnInit(): void {
+    this.userService.showNotes(localStorage.getItem('userId')).subscribe(
+      (res:any)=>
+      {
+        this.notes=res;
+      },
+      (error)=>
+      {
+          this.snack.open("No note available to display",'OK',{
+          duration:3000,
+          verticalPosition:'top',
+          horizontalPosition:'center',
+       })
+      }
+      )
+
   }
-  published_by = "Akshay Shinde";
-  published_on = new Date().toLocaleDateString();
-  title= "Java";
-  content= "It is a very popular and very secure programming language.";
+ 
+
+  deleteNote(noteId:any)
+  {
+      this.userService.deleteNote1(noteId).subscribe(
+      (res:any)=>
+      {
+        this.snack.open("Note deleted successfully",'OK',{
+        duration:3000,
+        verticalPosition:'top',
+        horizontalPosition:'center',
+      })
+      window.location.reload();
+
+    },
+    (error)=>
+    {
+        this.snack.open("Something went wrong",'OK',{
+        duration:3000,
+        verticalPosition:'top',
+        horizontalPosition:'center',
+        })
+    })
+  }
+
+
+  editNote(note:any)
+  {
+    localStorage.setItem('noteId',note.noteId);
+    localStorage.setItem('noteTitle',note.title);
+    localStorage.setItem('noteContent',note.content);
+    this.router.navigate(['/notes/editNotes']);
+  }
 }

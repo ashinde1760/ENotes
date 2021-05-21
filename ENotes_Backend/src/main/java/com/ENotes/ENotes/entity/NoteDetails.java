@@ -1,18 +1,32 @@
 package com.ENotes.ENotes.entity;
 
+import java.util.Date;
+
 public class NoteDetails {
 
 	int id;
 	String title;
 	String content;
-	public NoteDetails(int id, String title, String content) {
+	Date date;
+	
+	
+	public NoteDetails(int id, String title, String content, Date date) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.date = date;
 	}
 	public NoteDetails() {
 		super();
+	}
+	
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public int getId() {
 		return id;

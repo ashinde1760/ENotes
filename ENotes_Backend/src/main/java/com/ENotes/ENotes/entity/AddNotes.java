@@ -21,7 +21,7 @@ public class AddNotes {
 	private int uid;
 	
 	@CreationTimestamp
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	
 	

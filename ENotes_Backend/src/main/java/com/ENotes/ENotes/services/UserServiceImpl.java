@@ -89,6 +89,7 @@ public class UserServiceImpl  implements UserService{
 		{
 			addNotes.setTitle(note.getTitle());
 			addNotes.setContent(note.getContent());
+			addNotes.setDate(note.getDate());
 			this.addNotes.save(addNotes);
 			return addNotes;
 		}

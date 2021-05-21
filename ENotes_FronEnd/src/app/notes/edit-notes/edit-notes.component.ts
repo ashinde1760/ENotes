@@ -15,7 +15,7 @@ export class EditNotesComponent implements OnInit {
   public newNote:any={
     title:localStorage.getItem('noteTitle'),
     content:localStorage.getItem('noteContent'),
-    
+    date:Date.now()
   }
 
 

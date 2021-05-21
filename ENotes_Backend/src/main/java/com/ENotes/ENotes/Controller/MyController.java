@@ -68,7 +68,7 @@ public class MyController {
 		
 	}
 	
-	@PostMapping("/editNote/{id}")
+	@PutMapping("/editNote/{id}")
 	public AddNotes editNote(@RequestBody NoteDetails note,@PathVariable int id)throws Exception
 	{
 		

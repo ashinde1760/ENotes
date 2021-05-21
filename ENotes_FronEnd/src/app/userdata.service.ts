@@ -8,13 +8,8 @@ import baseUrl from './helper'
   providedIn: 'root'
 })
 export class UserdataService {
-  router: any;
-  constructor(router: Router,private snack:MatSnackBar,private http:HttpClient) {
-    this.router = router;
-  }
+  constructor(private snack:MatSnackBar,private http:HttpClient,public router:Router){  }
 
-     uname='';
-      
     //Function for Registration  
     getUserRegData(regFormUser: any) 
     {
@@ -22,36 +17,41 @@ export class UserdataService {
     }
 
 
-  // Function for Login
-    // getUserLoginData(loginData:any) 
-    // {
 
-    //     console.log(loginData);
-    //     console.log(loginData);
-    //     console.log(loginData);
-    //     return this.http.post(`${baseUrl}/user/login`,loginData);
-    // }
+  // function to Add a Note 
+  addNewNote(newNote:any)
+  {
+    return this.http.post(`${baseUrl}/user/addNote`,newNote);
+  }
 
-    // this.uname=loginData.email;
-    // if (( "ashinde1760@gmail.com" === loginData.email) && ("Akki@123" === loginData.password)) 
-    // {
-    //   this.router.navigate(['/notes/homepage']);
-    // }
-    // else
-    // {
-    //     this.router.navigate(['/user-login/login']);
-    //     this.snack.open("Incorrect username or password",'OK',
-    //     {
-    //         duration:3000,
-    //         verticalPosition:'top',
-    //         horizontalPosition:'center',
-    //     });
-    // }
+  //Function to login perticular user
+  getUserLoginData(loginData:any)
+  {
+    return this.http.post(`${baseUrl}/user/login`,loginData);
+  }
 
-    
+  //Function to show notes
+  showNotes(uid:any)
+  {
+    return this.http.get(`${baseUrl}/user/showNotes/${uid}`);
+  }
+
+  //Function to delete notes
+  deleteNote1(noteId:any)
+  {
+    return this.http.delete(`${baseUrl}/user/deleteNote/${noteId}`);
+  }
+
+  //funtion to edit note
+  editNote(note:any,id:any)
+  {
+    return this.http.put(`${baseUrl}/user/editNote/${id}`,note);
+  }
 
 
-  //Function for Forget Password
+
+ // Function for Forget Password
+
   getForgetPassData(forgetPass: any): any 
   {
     if (("ashinde1760@gmail.com" === forgetPass.email) && ("Akki@123" === forgetPass.lpass))
@@ -75,40 +75,4 @@ export class UserdataService {
   }
 
 
-  // function to Add a Note 
-  addNewNote(newNote:any)
-  {
-    console.log(newNote);
-    return this.http.post(`${baseUrl}/user/addNote`,newNote);
-    
-  }
-
-  //Function to login perticular user
-  getUserLoginData(loginData:any)
-  {
-    console.log(loginData);
-    return this.http.post(`${baseUrl}/user/login`,loginData);
-    
-  }
-
-  //Function to show notes
-  showNotes(uid:any)
-  {
-    console.log(uid);
-    return this.http.get(`${baseUrl}/user/showNotes/${uid}`);
-  }
-
-  //Function to delete notes
-  deleteNote1(noteId:any)
-  {
-    return this.http.delete(`${baseUrl}/user/deleteNote/${noteId}`);
-  }
-
-  //funtion to edit note
-  editNote(note:any,id:any)
-  {
-    console.log(note);
-    
-    return this.http.post(`${baseUrl}/user/editNote/${id}`,note);
-  }
 }

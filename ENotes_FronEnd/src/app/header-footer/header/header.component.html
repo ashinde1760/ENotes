@@ -37,18 +37,18 @@
       mat-icon-button 
       class="example-icon favorite-icon mr-2 ml-2 btn  btn-success" 
       type="submit"
-      (click)="profile()"
+        routerLink='/user-login/profile'
       >
       <mat-icon>person</mat-icon>
       {{profile}}
   </a>
 
-  <a routerLink="/user-login/login"
+  <button (click)="logout()"
      mat-icon-button 
      class="example-icon mr-2 ml-2 btn  btn-warning" >
     <mat-icon>logout</mat-icon>
     <span>Logout</span>
-  </a>
+  </button>
 </mat-toolbar>
 
 

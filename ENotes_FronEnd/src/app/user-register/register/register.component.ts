@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     name: '',
     email:'',
     password:'',
+    mobile:''
   };
 
   constructor(public router: Router, public userService:UserdataService) { };
@@ -24,7 +25,6 @@ export class RegisterComponent implements OnInit {
   //taking data from html to here and send to reg.ts file
   userRegister()
   {
-    console.log(this.userReg);
     this.userService.getUserRegData(this.userReg).subscribe(
 
       (done)=>{

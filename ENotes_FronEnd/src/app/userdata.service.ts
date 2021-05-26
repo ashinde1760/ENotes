@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import Swal from 'sweetalert2';
 import baseUrl from './helper'
 @Injectable({
   providedIn: 'root'
 })
 export class UserdataService {
-  constructor(private snack:MatSnackBar,private http:HttpClient,public router:Router){  }
+  constructor(private snack:MatSnackBar,private http:HttpClient,public router:Router,private cookie:CookieService){  }
 
     //Function for Registration  
     getUserRegData(regFormUser: any) 
@@ -37,7 +38,7 @@ export class UserdataService {
   }
 
   //Function to delete notes
-  deleteNote1(noteId:any)
+  deleteNote(noteId:any)
   {
     return this.http.delete(`${baseUrl}/user/deleteNote/${noteId}`);
   }
@@ -73,6 +74,24 @@ export class UserdataService {
       return "Incorrect Email-id or Last Password";
     }
   }
+
+
+
+//====================Authguard========================
+
+loggedIn()
+{
+  return !!this.cookie.get('token');
+}
+
+//=================Interceptor================
+
+getToken()
+{
+  return this.cookie.get('token');
+}
+
+
 
 
 }

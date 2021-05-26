@@ -4,6 +4,7 @@ import { LoginComponent } from './user-login/login/login.component';
 import { UserLoginModule } from './user-login/user-login.module';
 import { UserRegisterModule } from './user-register/user-register.module';
 import { NotesModule } from './notes/notes.module';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: 'notes',
-    loadChildren: () => NotesModule
+    loadChildren: () => NotesModule,
+    canActivate:[AuthGuard]
   }
   
 ];

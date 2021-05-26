@@ -6,10 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { SharedModuleModule} from '../shared-module/shared-module.module';
 import { HeaderFooterModule } from '../header-footer/header-footer.module';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     LoginComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

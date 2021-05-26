@@ -45,7 +45,4 @@ export class EditNotesComponent implements OnInit {
               }
         );
   }
-
-
-
 }

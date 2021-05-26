@@ -19,7 +19,7 @@ const routes: Routes = [
     component: ShowNotesComponent
   },
   {
-    path:'editNotes',
+    path:'editNotes/:id',
     component:EditNotesComponent
   }
   

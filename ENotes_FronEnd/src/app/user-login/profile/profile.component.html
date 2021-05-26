@@ -1,0 +1,41 @@
+
+<app-header></app-header>
+<mat-card>
+  <h1 class="text-center mb-5">Your Profile Details</h1>
+
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="cntainer text-center">
+          <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=6&m=1223671392&s=170667a&w=0&h=zP3l7WJinOFaGb2i1F4g8IS2ylw0FlIaa6x3tP9sebU=" 
+          alt="" class="profile-image">
+          <h1 class="mt-3" style="color: orangered">{{profile.name}}</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+
+            <table class="table text-center">
+              <tr>
+                <td>Name</td>
+                <td>{{profile.name}}</td>
+              </tr>
+              <tr>
+                <td>User Id</td>
+                <td>{{profile.uid}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{profile.email}}</td>
+              </tr>
+              <tr>
+                <td>Contact Number</td>
+                <td>{{profile.mobile}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<app-footer></app-footer>

@@ -4,6 +4,7 @@ import { SharedModuleRoutingModule } from './shared-module-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -12,12 +13,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   imports: [
     MatIconModule,
     FormsModule,
-    SharedModuleRoutingModule
+    SharedModuleRoutingModule,
+    MatCardModule
   ],
   exports: [
     MatIconModule,
     FormsModule,
     MatToolbarModule,
+    MatCardModule
   ]
 })
 export class SharedModuleModule { }

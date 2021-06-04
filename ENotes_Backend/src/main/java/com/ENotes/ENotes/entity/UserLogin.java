@@ -1,23 +1,24 @@
 package com.ENotes.ENotes.entity;
 
 public class UserLogin {
-	String email;
+	String username;
 	String password;
 	
 	
-	public UserLogin(String email, String password) {
+	public UserLogin(String username, String password) {
 		super();
-		this.email = email;
+		this.username = username;
 		this.password = password;
 	}
 	public UserLogin() {
 		super();
 	}
-	public String getEmail() {
-		return email;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;

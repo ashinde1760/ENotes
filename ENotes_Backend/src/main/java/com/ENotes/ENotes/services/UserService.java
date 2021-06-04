@@ -3,6 +3,7 @@ package com.ENotes.ENotes.services;
 import java.util.Set;
 
 import com.ENotes.ENotes.entity.AddNotes;
+import com.ENotes.ENotes.entity.ContactUs;
 import com.ENotes.ENotes.entity.NoteDetails;
 import com.ENotes.ENotes.entity.UserLogin;
 import com.ENotes.ENotes.entity.UserReg;
@@ -20,6 +21,10 @@ public interface UserService {
 	public Set<AddNotes> deleteNotes(int id);
 
 	public AddNotes updateNote(NoteDetails note, int id) throws Exception;
+
+	public ContactUs contactUs(ContactUs contactUs);
+
+//	public Set<AddNotes> showNote(int id);
 
 	
 }

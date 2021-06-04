@@ -6,8 +6,8 @@ import com.ENotes.ENotes.entity.UserReg;
 
 public interface UserRepository extends JpaRepository<UserReg , Integer>{
 
-	public UserReg findByEmail(String email);
+	public UserReg findByUsername(String username);
 
-	public UserReg findByEmailAndPassword(String email, String password);
+	public UserReg findByUsernameAndPassword(String username, String password);
 
 }

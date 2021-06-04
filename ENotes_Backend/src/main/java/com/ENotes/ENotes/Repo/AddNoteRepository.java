@@ -16,6 +16,8 @@ import com.ENotes.ENotes.entity.NoteDetails;
 	Set<AddNotes> findAllByUid(int uid);
 
 	AddNotes findByNoteId(int id);
+//
+//	Set<AddNotes> findAllById(int id);
 
 	
   

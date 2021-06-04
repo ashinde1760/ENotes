@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ENotes.ENotes.entity.AddNotes;
+import com.ENotes.ENotes.entity.ContactUs;
 import com.ENotes.ENotes.entity.NoteDetails;
 import com.ENotes.ENotes.entity.UserLogin;
 import com.ENotes.ENotes.entity.UserReg;
@@ -28,54 +29,53 @@ public class MyController {
 
 	@Autowired
 	private UserService userService;
-	
-	//creating new user
+
+	// creating new user
 	@PostMapping("/")
-	public UserReg regUser(@RequestBody UserReg userReg) throws Exception
-	{
-		return this.userService.regUser(userReg);	
+	public UserReg regUser(@RequestBody UserReg userReg) throws Exception {
+		return this.userService.regUser(userReg);
 	}
 
-	//create new note
+	// create new note
 	@PostMapping("/addNote")
-	public AddNotes addNote(@RequestBody AddNotes addNotes) throws Exception
-	{
-		return this.userService.addNotes(addNotes);	
+	public AddNotes addNote(@RequestBody AddNotes addNotes) throws Exception {
+		return this.userService.addNotes(addNotes);
 	}
-	
-	
-	//Login User
+
+	// Login User
 	@PostMapping("/login")
-	public UserReg loginUser(@RequestBody UserLogin userLogin)throws Exception
-	{
+	public UserReg loginUser(@RequestBody UserLogin userLogin) throws Exception {
+			
 		return this.userService.getUserLogin(userLogin);
 		
 	}
-	
-	
+
 	@GetMapping("/showNotes/{uid}")
-	public Set<AddNotes> showNotes(@PathVariable int uid)throws Exception
-	{
+	public Set<AddNotes> showNotes(@PathVariable int uid) throws Exception {
 		return this.userService.showNotes(uid);
 	}
-	
-	
+
 	@DeleteMapping("/deleteNote/{id}")
-	public boolean deleteNote(@PathVariable int id)throws Exception
-	{
+	public boolean deleteNote(@PathVariable int id) throws Exception {
 		this.userService.deleteNotes(id);
 		return true;
-		
+
+	}
+
+	@PutMapping("/editNote/{id}")
+	public AddNotes editNote(@RequestBody NoteDetails note, @PathVariable int id) throws Exception {
+		return this.userService.updateNote(note, id);
+
 	}
 	
-	@PutMapping("/editNote/{id}")
-	public AddNotes editNote(@RequestBody NoteDetails note,@PathVariable int id)throws Exception
+	@PostMapping("/contact_us")
+	public ContactUs contactUs(@RequestBody ContactUs contactUs)throws Exception
 	{
-		
-		System.out.println("note title is"+note.getTitle());
-		return this.userService.updateNote(note,id);
-		
-	} 
+		return this.userService.contactUs(contactUs);
+	}
 	
-	
+//	@GetMapping("/showNotes/{id}")
+//	public Set<AddNotes> showNote(@PathVariable int id) throws Exception {
+//		return this.userService.showNote(id);
+//	}
 }

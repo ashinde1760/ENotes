@@ -7,8 +7,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ENotes.ENotes.Repo.AddNoteRepository;
+import com.ENotes.ENotes.Repo.ContactUsRepository;
 import com.ENotes.ENotes.Repo.UserRepository;
 import com.ENotes.ENotes.entity.AddNotes;
+import com.ENotes.ENotes.entity.ContactUs;
 import com.ENotes.ENotes.entity.NoteDetails;
 import com.ENotes.ENotes.entity.UserLogin;
 import com.ENotes.ENotes.entity.UserReg;
@@ -24,12 +26,14 @@ public class UserServiceImpl  implements UserService{
 	@Autowired
 	private AddNoteRepository addNotes;
 	
+	@Autowired
+	private ContactUsRepository contactRepo;
 	
 	@Override
 	public UserReg regUser(UserReg user) throws Exception {
 		
 		
-		  UserReg local=this.userRepository.findByEmail(user.getEmail()); 
+		  UserReg local=this.userRepository.findByUsername(user.getUsername()); 
 		  if(local !=null) 
 		  { 
 			  System.out.println("User is already present...Please login"); 
@@ -53,7 +57,7 @@ public class UserServiceImpl  implements UserService{
 
 	@Override
 	public UserReg getUserLogin(UserLogin userLogin) throws Exception {
-		UserReg local=this.userRepository.findByEmailAndPassword(userLogin.getEmail() 																	,userLogin.getPassword());
+		UserReg local=this.userRepository.findByUsernameAndPassword(userLogin.getUsername(),userLogin.getPassword());
 		if(local!=null)
 		{
 			return local;
@@ -98,4 +102,16 @@ public class UserServiceImpl  implements UserService{
 			throw new Exception("something went wrong");
 		}
 	}
+
+	@Override
+	public ContactUs contactUs(ContactUs contactUs) {
+		this.contactRepo.save(contactUs);
+		return contactUs;
+	}
+
+//	@Override
+//	public Set<AddNotes> showNote(int id) {
+//		Set<AddNotes> addNotes1=this.addNotes.findAllById(id);
+//		return addNotes1;
+//	}
 }

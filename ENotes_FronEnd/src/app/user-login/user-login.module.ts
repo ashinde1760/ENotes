@@ -7,11 +7,14 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { SharedModuleModule} from '../shared-module/shared-module.module';
 import { HeaderFooterModule } from '../header-footer/header-footer.module';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from '../auth.guard';
+import { Main_homeComponent } from './main_home/main_home.component';
 @NgModule({
   declarations: [
     LoginComponent,
     ForgetPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    Main_homeComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   exports: [
     
-  ]
+  ],
+  providers:[AuthGuard]
 })
 export class UserLoginModule { }

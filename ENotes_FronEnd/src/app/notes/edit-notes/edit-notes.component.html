@@ -1,62 +1,40 @@
-<app-header></app-header>
-	<div class="container-fluid">
-		<h2 class="text-center mt-3">Add Your Notes</h2>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
+<body>
+  <app-header [deviceXs]="deviceXs"></app-header>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="100%">
+      
+      <mat-card class="bgcolor" fxLayout="column" fxLayoutAlign="center center">
+        <form [formGroup]="editNoteFormGroup" (ngSubmit)="addNewNote()" >
+          <mat-card-header>
+            <p>
+              <mat-label class="login_header">Edit Notes</mat-label>
+            </p>
+          </mat-card-header>
 
-          <form #addNoteForm="ngForm" (ngSubmit)="addNewNote(); addNoteForm.resetForm()">
+          <mat-card-content>
+            
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Title" name="title">
+                <div class="clearfix"></div>
+              </mat-form-field>
+            </p>
+<!-- 
+            <input type="text" required matInput placeholder="Enter Here..." class="form-control" formControlName="course_name"> -->
 
-            <div class="form-group">
-                <label for="exampleInputEmail1">Enter Ttile</label>
-                <input type="text" required #title="ngModel"
-                       pattern="[A-Za-z_0-9 ]{1,30}"
-                       [class.is-invalid]="title.invalid && title.touched"
-                       class="form-control is-invalid" 
-                       [(ngModel)]="newNote.title" 
-                       name="title" 
-                       id="title"
-                       >
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Content</mat-label>
+                <textarea rows="8" cols="12"
+                          matInput formControlName="content" placeholder="Content" name="content" ></textarea>
+              </mat-form-field>
+            </p>
 
-                <div *ngIf="title.errors && (title.invalid || title.touched)" >
-                      <small class="text-danger" 
-                             [class.d-none]="title.valid || title.untouched " 
-                             *ngIf="title.errors.required">
-                             Title is Required
-                      </small>
-                      <small class="text-danger" 
-                             *ngIf="title.errors.pattern">
-                             Title should contain only characters and Numbers   
-                      </small>
-                </div>
-            </div>
-
-
-          <div clas="form-group">
-              <label for="exampleInputEmail1">Enter Content</label>
-              <textarea rows="8" cols="" 
-                        required #content="ngModel"
-                        [class.is-invalid]="content.invalid && content.touched"
-                        class="form-control is-invalid" 
-                        [(ngModel)]="newNote.content" 
-                        name="content" 
-                        id="content">
-              </textarea>
-              <small class="text-danger" 
-                     [class.d-none]="content.valid || content.untouched ">
-                    Content is Required
-              </small>
-          </div>
-
-            <div class="container text-center">
-              <button [disabled]="addNoteForm.form.invalid" type="submit" class="btn btn-primary mt-3 mb-3">
-                Update Note
-              </button>
-            </div>
-          </form>
-
-				</div>
-			</div>
-		</div>
-	</div>
-<app-footer></app-footer>
+            <button mat-raised-button type="submit" color="primary">Edit</button>
+          </mat-card-content>
+        </form>
+      </mat-card>
+      </div>
+    </div>
+    <app-footer></app-footer>

@@ -1,16 +1,23 @@
-<app-header></app-header>
-  <div class="container-fluid">
-    <div class="card mt-3 py-3">
-      <div class="card-body text-center">
+<body>
+  <app-header [deviceXs]="deviceXs"></app-header>
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="100%">
 
-        <img alt="" src="..\assets\paper.png" class="img-fluid mx-auto"
-             style="max-width: 350px;">
-        <h1>START TAKING YOUR NOTES</h1>
-        <a routerLink="/notes/addNotes" class="btn btn-outline-primary">
+      <mat-card class="bgcolor" fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-header>
+          <p>
+            <mat-label class="login_header">
+              <h2>Notes</h2>
+            </mat-label>
+          </p>
+        </mat-card-header>
+        <img src="..\assets\paper.png" alt="">
+        <h1 fxLayoutAlign="center center">START TAKING YOUR NOTES</h1>
+        <button color="primary" routerLink="/notes/addNotes" class="btn btn-outline-primary">
           Start Here
-        </a>
-
-      </div>
+        </button>
+      </mat-card>
     </div>
   </div>
   <app-footer></app-footer>
+</body>

@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
-import baseUrl from './helper'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,9 @@ export class UserdataService {
     //Function for Registration  
     getUserRegData(regFormUser: any) 
     {
-        return this.http.post(`${baseUrl}/user/`,regFormUser);
+        console.log(regFormUser);
+        
+        return this.http.post(`${environment.baseUrl}/user/`,regFormUser);
     }
 
 
@@ -22,31 +24,31 @@ export class UserdataService {
   // function to Add a Note 
   addNewNote(newNote:any)
   {
-    return this.http.post(`${baseUrl}/user/addNote`,newNote);
+    return this.http.post(`${environment.baseUrl}/user/addNote`,newNote);
   }
 
   //Function to login perticular user
   getUserLoginData(loginData:any)
   {
-    return this.http.post(`${baseUrl}/user/login`,loginData);
+    return this.http.post(`${environment.baseUrl}/user/login`,loginData);
   }
 
   //Function to show notes
   showNotes(uid:any)
   {
-    return this.http.get(`${baseUrl}/user/showNotes/${uid}`);
+    return this.http.get(`${environment.baseUrl}/user/showNotes/${uid}`);
   }
 
   //Function to delete notes
   deleteNote(noteId:any)
   {
-    return this.http.delete(`${baseUrl}/user/deleteNote/${noteId}`);
+    return this.http.delete(`${environment.baseUrl}/user/deleteNote/${noteId}`);
   }
 
   //funtion to edit note
   editNote(note:any,id:any)
   {
-    return this.http.put(`${baseUrl}/user/editNote/${id}`,note);
+    return this.http.put(`${environment.baseUrl}/user/editNote/${id}`,note);
   }
 
 
@@ -92,6 +94,22 @@ getToken()
 }
 
 
+contactForm(data:any)
+{
+  return this.http.post(`${environment.baseUrl}/user/contact_us/`,data);  
+}
 
+// showNoteDetails(id:any)
+// {
+//   return this.http.get(`${environment.baseUrl}/user/showNotes/${id}`);
+// }
+
+
+// userToken(loginData:any)
+// {
+//   var data="username="+loginData.username+"&password="+loginData.password+"&grant_type=password";
+//   var reqHeader=new HttpHeaders({'Content-type':'application/x-www-urlencoded'});
+//   return this.http.post(baseUrl+'/token',data,{headers:reqHeader});
+// }
 
 }

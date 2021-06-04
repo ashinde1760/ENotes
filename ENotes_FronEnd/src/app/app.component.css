@@ -1,7 +1,55 @@
-.back-img {
-  background: url("src\assets\particles.jpeg");
-  width: 100%;
-  height: 83vh;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* .companyName{
+    font-size: 130%;
 }
+
+.mat-toolbar{
+  height: 7vh;
+}
+
+div {
+    overflow: inherit;
+}
+
+.mat-sidenav-container{
+  min-height: 93vh !important;
+}
+
+a{
+    text-decoration: none;
+    font-size: 110%;
+    white-space: normal;
+}
+
+button{
+    font-size: 100%;
+    min-width: min-content;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .mat-sidenav-content{
+      font-size: 200%;
+      text-align: center;
+  }
+
+  .sidenav
+  {
+    background-color: aquamarine;
+  }
+  .container-fluid {
+    position: static;
+  bottom: 0;
+  width:100%;
+  height: 100px;
+  background-color:gray;
+  }
+  .text-center{
+    text-align: center;
+    color: white;
+  } */

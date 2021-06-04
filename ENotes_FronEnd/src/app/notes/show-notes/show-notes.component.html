@@ -1,39 +1,51 @@
-<app-header></app-header>
-  <div class="container">
-    <h2 class="text-center mt-3">All Notes</h2>
-    <div class="row">
-      <div class="col-md-12">
-        <div *ngIf="notes">
-          <div *ngFor="let note of notes.slice().reverse()"> 
-          <div class="card ml-5 mr-5 mt-3">
-            
-                    <div class="card-body p-4">
-                      
-                           <input type="hidden" name="noteId"  value="{{note.noteId}}"> 
+<body>
+  <app-header [deviceXs]="deviceXs"></app-header>
 
-                          <h5 class="card-title">{{note.title}}</h5>
-                          
-                          <p>{{note.content}}</p>
-        
-                          <p>
-                              <b class="text-success">Published By: </b><b class="text-primary">{{published_by}}</b>
-                          </p>
 
-                          <p>
-                              <b class="text-success">Published Date: </b> <b class="text-primary">{{note.date | date:'EEE, dd-MMM yyyy, h:mm:ss aa'}}</b>
-                          </p>
+  <body>
+    <div fxLayout="row" fxLayout.xs="column">
+      <div fxFlex="100%" fxFlex.xs="100%">
 
-              <div class="container text-center mt-2">
-                <button  class="btn btn-danger mr-2" (click)="deleteNote(note.noteId)">delete</button>
-                <button  class="btn btn-primary" (click)="editNote(note)">Edit</button>
+        <mat-card class="bgcolor" fxLayout="column" fxLayoutAlign="center center">
+          <mat-card-header>
+            <p>
+              <mat-label class="login_header">Your Notes</mat-label>
+            </p>
+          </mat-card-header>
+          <div *ngIf="note">
+            <div *ngFor="let note of note.slice().reverse()">
+              <mat-card-content class="data">
+                <p>
+                  <input type="hidden" name="noteId" value="{{note.noteId}}">
+                </p>
+
+                <mat-card-title>
+                  <h5>{{note.title}}</h5>
+                </mat-card-title>
+
+                <p>{{note.content}}</p>
+
+                <p class="details">
+                  <b class="text-success">Published By: </b><b class="published">{{published_by}}</b>
+                </p>
+
+                <p>
+                  <b class="text-success">Published Date: </b>
+                  <b class="published">
+                    {{note.date | date:'EEE, dd-MMM yyyy, h:mm:ss aa'}}
+                  </b>
+                </p>
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+                <button  class="butn-d" (click)="deleteNote(note.noteId)">delete</button>
+                <button  class="butn-s" (click)="editNote(note)">Edit</button>
               </div>
+              </mat-card-content>
             </div>
           </div>
-          </div>
-          </div>
-
-      </div>
+          
+        </mat-card>
     </div>
+    </div>
+    <app-footer></app-footer>
     
-  </div>
-  <app-footer></app-footer>
+  </body>

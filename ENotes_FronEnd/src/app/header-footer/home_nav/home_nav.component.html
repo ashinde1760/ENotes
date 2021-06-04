@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">ENotes</span>
+      </button>
+      <div *ngIf="!deviceXs" fxLayout="row">
+        <button mat-button routerLink="/user-login/main-home">Home</button>
+        <button mat-button routerLink="/user-register/contact_us">Contact us</button>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="!deviceXs" mat-button fxLayoutAlign="end">
+        <button mat-button routerLink="/user-login/login">Login</button>
+        <button mat-button routerLink="/user-register/register">Register</button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+    <button mat-button routerLink="/user-login/main-home">Home</button>
+    <button mat-button routerLink="/user-register/contact_us">Contact us</button>
+    <button mat-button routerLink="/user-login/login">Login</button>
+    <button mat-button routerLink="/user-register/register">Register</button>
+  </mat-toolbar-row>
+</mat-toolbar>

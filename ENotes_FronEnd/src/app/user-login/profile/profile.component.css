@@ -1,18 +1,24 @@
-.profile-image
+ .profile-image
 {
     max-width: 200px;
     max-height: 150px;
     border: 2px solid crimson;
     border-radius: 50%;
 }
-
-.table{
-    width: 100%;
+table{
+    width: auto;
     border: 3px solid chocolate;
     border-collapse: collapse;
 }
 
-.table tr td{
+table tr td{
     padding: 20px 50px;
+    padding-left: 0%;
     border: 0.5px solid blue;
+}
+.cardd{
+    background-color: azure;
+}
+.text-center{
+    text-align: center;
 }

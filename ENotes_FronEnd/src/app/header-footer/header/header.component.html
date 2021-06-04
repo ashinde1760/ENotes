@@ -1,54 +1,28 @@
-<mat-toolbar color="primary">
-  
-  <a mat-icon-bprimary
-      class="example-icon" 
-      aria-label="Example icon-button with menu icon">
-      <mat-icon>menu_book</mat-icon>
-      <span>E-Notes</span>
-  </a>
-
-  <a  routerLink="/notes/homepage" 
-      mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary" >
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-  </a>
-
-  <a  routerLink="/notes/addNotes" 
-      mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary">
-      <mat-icon>library_add</mat-icon>
-      <span>Add Notes</span>
-  </a>
-
-  <a  routerLink="/notes/showNotes" 
-      mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2 btn  btn-primary " >
-      <mat-icon>article</mat-icon>
-      <span>Show Notes</span>
-  </a>
-
-
-
-
-  <span class="example-spacer"></span>
-
-  <a  
-      mat-icon-button 
-      class="example-icon favorite-icon mr-2 ml-2 btn  btn-success" 
-      type="submit"
-        routerLink='/user-login/profile'
-      >
-      <mat-icon>person</mat-icon>
-      {{profile}}
-  </a>
-
-  <button (click)="logout()"
-     mat-icon-button 
-     class="example-icon mr-2 ml-2 btn  btn-warning" >
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
-  </button>
+<mat-toolbar color="primary" class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">ENotes</span>
+      </button>
+      <div *ngIf="!deviceXs" fxLayout="row">
+        <button mat-button routerLink="/notes/homepage">Home</button>
+        <button mat-button routerLink="/notes/addNotes">Add Notes</button>
+        <button mat-button routerLink="/notes/showNotes">Show Notes</button>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="!deviceXs" mat-button fxLayoutAlign="end">
+        <button mat-button routerLink="/user-login/profile">Profile</button>
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="deviceXs" fxLayout="space-between center" fxLayoutAlign="center center" class="xtra_small">
+    <button mat-button  routerLink="/notes/homepage">Home</button>
+    <button mat-button class="menus" routerLink="/notes/addNotes">Add Notes</button>
+    <button mat-button class="menus" routerLink="/notes/showNotes">Show Notes</button>
+    <button mat-button class="menus" routerLink="/user-login/profile">Profile</button>
+    <button mat-button class="menus1" (click)="logout()">Logout</button>
+  </mat-toolbar-row>
 </mat-toolbar>
-
-

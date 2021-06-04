@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserdataService } from '../../userdata.service';
 import { Router } from '@angular/router';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-notes',
@@ -10,21 +12,45 @@ import { Router } from '@angular/router';
 })
 export class AddNotesComponent implements OnInit {
 
-  constructor(public router:Router ,public userService:UserdataService,private snack:MatSnackBar) { }
+  mediaSub: any;
+  deviceXs: any;
+
+  constructor(public router:Router,private formBuilder: FormBuilder,
+              public mediaObserver: MediaObserver ,public userService:UserdataService,
+              private snack:MatSnackBar) {
+                this.initaddNoteForm();
+               }
 
   ngOnInit(): void {
+    this.mediaSub = this.mediaObserver.media$.subscribe((res: MediaChange) => {
+      console.log(res.mqAlias);
+      this.deviceXs = res.mqAlias === "xs" ? true : false;
+    })
+    
   }
 
-  public newNote:any={
-      title:'',
-      content:'',
-      uid:localStorage.getItem('userId')
+  ngOnDestroy() {
+    this.mediaSub.unsubscribe();
   }
+
+
+  addNoteFormGroup: any;
+
+  initaddNoteForm() {
+    this.addNoteFormGroup = this.formBuilder.group(
+      {
+        title: new FormControl('', [Validators.required, Validators.pattern("[A-Za-z_0-9]{3,15}")]),
+        content: new FormControl('', [Validators.required]),
+        uid:localStorage.getItem('userId')
+      }
+    );
+  }
+
 
   addNewNote() 
   {
 
-    this.userService.addNewNote(this.newNote).subscribe(
+    this.userService.addNewNote(this.addNoteFormGroup.value).subscribe(
       
 
       (res:any)=>{
@@ -37,7 +63,7 @@ export class AddNotesComponent implements OnInit {
               this.router.navigate(['/notes/showNotes'])
             },
       (error)=>{
-                console.log(this.newNote);
+                console.log(this.addNoteFormGroup);
                 alert("Something Went wrong");
                 this.router.navigate(['/notes/addNotes']);
               }

@@ -5,10 +5,11 @@ import { UserLoginModule } from './user-login/user-login.module';
 import { UserRegisterModule } from './user-register/user-register.module';
 import { NotesModule } from './notes/notes.module';
 import { AuthGuard } from './auth.guard';
+import { Main_homeComponent } from './user-login/main_home/main_home.component';
 
 const routes: Routes = [
   {
-    path: "", pathMatch: "full", component: LoginComponent
+    path: "", pathMatch: "full", component: Main_homeComponent
   },
   {
     path: 'user-login',

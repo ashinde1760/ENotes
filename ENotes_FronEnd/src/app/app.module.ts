@@ -8,25 +8,38 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule, 
+    FlexLayoutModule,
+    MatIconModule, 
+    MatButtonModule, 
+    MatSidenavModule,
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   exports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [AuthGuard,
   {

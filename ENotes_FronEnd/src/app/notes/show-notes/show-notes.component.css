@@ -1,0 +1,49 @@
+.data{
+    border: 1px solid black;
+    padding: 20px;
+    width:50vw;
+}
+
+.login_header
+{
+  color:chocolate;
+  font-size: 40px;
+  font-weight: 500;
+  margin:auto ;
+  border-bottom: 1px solid chocolate;
+}
+
+mat-card{
+    background-color: azure;
+}
+mat-card-title{
+    color: brown;
+}
+
+mat-card-content{
+    color: black;
+}
+
+.details{
+    margin-top: 30px;
+}
+.text-success{
+    color:darkgreen;
+}
+.published{
+    color: mediumblue;
+}
+.butn-d{
+    background-color: lightcoral;
+    border-radius: 5px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px 30px;
+}
+.butn-s{
+    background-color: lightgreen;
+    border-radius: 5px;
+    width: 100px;
+    padding: 10px;
+    
+}

@@ -1,0 +1,20 @@
+.cardd{
+    background-color: azure;
+}
+
+img{
+    max-width: 350px;
+}
+
+.login_header{
+    font-size: 20px;
+}
+mat-card{
+    background-color: azure;
+}
+button{
+    background-color: cyan;
+    padding: 20px;
+    width:130px;
+    border-radius: 5px;
+}
